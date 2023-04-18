@@ -7,7 +7,7 @@ import NotFound from './Pages/NotFound.js'
 import BudgetIndex from './Pages/BudgetIndex.js';
 import Show from './Pages/Show.js';
 import New from './Pages/New.js';
-import Edit from './Pages/Edit';
+import Edit from './Pages/Edit.js';
 
 function App() {
   return (
