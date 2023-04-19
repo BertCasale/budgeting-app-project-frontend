@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 export default function Transaction({transaction, index}) {
 
-  //convert the date to the correct format
   function getDate() {
     const date = new Date(transaction.date);
     const options = { timeZone: "UTC", month: "short", day: "numeric", year: "numeric"}

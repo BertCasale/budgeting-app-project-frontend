@@ -14,13 +14,11 @@ export default function TransactionDetails() {
     axios
     .get(`${API}/transactions/${index}`)
     .then((res) => {
-      setTransaction(res.data.transactions)
-      console.log(res.data.transactions)
+      setTransaction(res.data.transactions);
     })
     .catch((e) => navigate("/notfound"));
   },[]);
 
-  //check if the amount is positive or negative, and apply a color 
   function positiveOrNegative () {
     return (transaction.amount < 0) ?
       {color: "red"}:

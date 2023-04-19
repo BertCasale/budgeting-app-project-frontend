@@ -3,7 +3,6 @@ import { useState } from "react";
 
 export default function BudgetIndex() {
   const [total, setTotal] = useState(0);
-  //total should equal 2634 to start
 
   function balanceCheck () {
     if (total <= 0) {
