@@ -11,3 +11,9 @@ form input, form select{
   width: 200px;
   font-size: x-large;
 }
+
+form button{
+  width: 150px;
+  font-size: 25px;
+  margin: 20px;
+}

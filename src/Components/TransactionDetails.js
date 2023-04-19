@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "./TransactionDetails.css"
+
 const API = process.env.REACT_APP_API_URL;
 
 export default function TransactionDetails() {
@@ -25,6 +27,12 @@ export default function TransactionDetails() {
       {color: "green"}
   }
 
+  function getDate() {
+    const date = new Date(transaction.date);
+    const options = { timeZone: "UTC", month: "short", day: "numeric", year: "numeric"}
+    return (date.toLocaleDateString("en-US", options ));
+  }
+
   function deleteTransaction() {
     axios
     .delete(`${API}/transactions/${index}`)
@@ -37,7 +45,8 @@ export default function TransactionDetails() {
   return(<div className="TransactionDetails">
     <article>
       <h3>{transaction.itemName}</h3>
-      <h4>From: {transaction.from}</h4>
+      <p>From: {transaction.from}</p>
+      <p>Date: {getDate()}</p>
       <p>Amount: <b style={positiveOrNegative()}>{transaction.amount}</b></p>
       <p>Category: {transaction.category}</p>
     </article>

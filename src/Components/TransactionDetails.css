@@ -1,0 +1,21 @@
+.TransactionDetails {
+  font-size: larger;
+}
+
+.TransactionDetails article {
+  text-align: center;
+  align-content: center;
+}
+
+.TransactionDetails p{
+  border-bottom: black solid 1px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.TransactionDetails button{
+  width: 150px;
+  font-size: 25px;
+  margin: 20px;
+}
