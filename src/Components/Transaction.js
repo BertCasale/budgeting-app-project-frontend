@@ -12,6 +12,6 @@ export default function Transaction({transaction, index}) {
   return(<tr className="Transaction">
     <td>{getDate()}</td>
     <td><Link to={`/transactions/${index}`}>{transaction.itemName}</Link></td>
-    <td>{transaction.amount}</td>
+    <td>{transaction.amount}{transaction.amount >= 0? `🟢`: `🔴`}</td>
   </tr>);
 }

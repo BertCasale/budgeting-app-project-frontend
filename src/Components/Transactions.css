@@ -1,0 +1,19 @@
+.Transactions{
+  text-align: right;
+}
+
+.Transactions table{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border: rgb(106, 125, 207) solid 3px;
+}
+
+.Transactions th{
+  border: black solid 1px;
+  font-size: larger;
+}
+
+.Transactions td{
+  border-bottom: black solid 2px;
+}

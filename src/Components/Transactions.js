@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Transaction from "./Transaction.js";
+import "./Transactions.css"
 const API = process.env.REACT_APP_API_URL;
 
 export default function Transactions( {setTotal, total} ) {
