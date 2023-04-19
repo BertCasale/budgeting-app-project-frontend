@@ -13,8 +13,12 @@ export default function TransactionNew() {
     category: ""
   });
 
-  function onTextChange(event){
+  function handleTextChange(event){
     setTransaction({...transaction, [event.target.id]: event.target.value});
+  }
+
+  function handleNumberChange(event) {
+    setTransaction({...transaction, [event.target.id]: Number(event.target.value)});
   }
 
   function addTransaction(newTransaction) {
@@ -40,7 +44,7 @@ export default function TransactionNew() {
         name="date"
         pattern="\d{4}-\d{2}-\d{2}"
         value={transaction.date}
-        onChange={onTextChange}
+        onChange={handleTextChange}
         required/>
 
       <label htmlFor="itemName">Name:</label>
@@ -50,7 +54,7 @@ export default function TransactionNew() {
         name="name"
         placeholder="name"
         value={transaction.itemName}
-        onChange={onTextChange} 
+        onChange={handleTextChange} 
         required/>
 
       <label htmlFor="amount">Amount:</label>
@@ -60,7 +64,7 @@ export default function TransactionNew() {
         name="amount"
         placeholder={0}
         value={transaction.amount}
-        onChange={onTextChange} 
+        onChange={handleNumberChange} 
         required/>
 
       <label htmlFor="from">From:</label>
@@ -70,7 +74,7 @@ export default function TransactionNew() {
         name="from"
         placeholder="from"
         value={transaction.from}
-        onChange={onTextChange} 
+        onChange={handleTextChange} 
         required/>
 
       <label htmlFor="category">Select a Category:</label>
@@ -78,7 +82,7 @@ export default function TransactionNew() {
         name="category" 
         id="category"
         value={transaction.category}
-        onChange={onTextChange}  
+        onChange={handleTextChange}  
         required>
         <option></option>
         <option value="Clothing">Clothing</option>
