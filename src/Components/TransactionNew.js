@@ -1,19 +1,56 @@
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+const API = process.env.REACT_APP_API_URL;
+
 export default function TransactionNew() {
+  const navigate = useNavigate();
+  const [transaction, setTransaction] = useState({
+    itemName: "",
+    amount: 0,
+    date: "",
+    from: "",
+    category: ""
+  });
+
+  function onTextChange(event){
+    setTransaction({...transaction, [event.target.id]: event.target.value});
+  }
+
+  function addTransaction(newTransaction) {
+    axios
+    .post(`${API}/transactions`, newTransaction)
+    .then(() => {
+      navigate("/transactions");
+    })
+    .catch((e) => console.error("catch", e))
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    addTransaction(transaction);
+  }
+
   return(<div className="TransactionNew">
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="date">Date:</label>
       <input 
         type="date" 
         id="date" 
         name="date"
+        pattern="\d{4}-\d{2}-\d{2}"
+        value={transaction.date}
+        onChange={onTextChange}
         required/>
 
-      <label htmlFor="name">Name:</label>
+      <label htmlFor="itemName">Name:</label>
       <input 
         type="text"
-        id="name"
+        id="itemName"
         name="name"
-        placeholder="name" 
+        placeholder="name"
+        value={transaction.itemName}
+        onChange={onTextChange} 
         required/>
 
       <label htmlFor="amount">Amount:</label>
@@ -21,7 +58,9 @@ export default function TransactionNew() {
         type="number"
         id="amount"
         name="amount"
-        placeholder={0} 
+        placeholder={0}
+        value={transaction.amount}
+        onChange={onTextChange} 
         required/>
 
       <label htmlFor="from">From:</label>
@@ -29,13 +68,17 @@ export default function TransactionNew() {
         type="text"
         id="from"
         name="from"
-        placeholder="from" 
+        placeholder="from"
+        value={transaction.from}
+        onChange={onTextChange} 
         required/>
 
       <label htmlFor="category">Select a Category:</label>
       <select 
         name="category" 
-        id="category" 
+        id="category"
+        value={transaction.category}
+        onChange={onTextChange}  
         required>
         <option></option>
         <option value="Clothing">Clothing</option>
