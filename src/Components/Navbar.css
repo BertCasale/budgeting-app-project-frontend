@@ -1,0 +1,14 @@
+.Navbar{
+  position: sticky;
+  top: 0px;
+  background-color: #B6FFE4;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Navbar a{
+  color:black;
+  text-decoration: none;
+}
+
