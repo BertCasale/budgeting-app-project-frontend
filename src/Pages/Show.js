@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL;
 
 export default function Show() {
@@ -25,6 +26,15 @@ export default function Show() {
       {color: "green"}
   }
 
+  function deleteTransaction() {
+    axios
+    .delete(`${API}/transactions/${index}`)
+    .then(() => {
+      navigate("/transactions");
+    })
+    .catch((e) => console.error("catch", e));
+  }
+
   return(<div className="Show">
     <h2>Item details</h2>
     
@@ -34,5 +44,11 @@ export default function Show() {
       <p>Amount: <b style={positiveOrNegative()}>{transaction.amount}</b></p>
       <p>Category: {transaction.category}</p>
     </article>
+
+    <Link to={`/transactions/${index}/edit`}>
+      <button>Edit</button>
+    </Link>
+
+    <button onClick={deleteTransaction}>Delete</button>
   </div>);
 }
