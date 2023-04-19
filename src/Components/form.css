@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  padding-left: 200px;
+  font-size: xx-large;
+}
+
+form input, form select{
+  height: 40px;
+  width: 200px;
+  font-size: x-large;
+}
